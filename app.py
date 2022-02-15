@@ -58,7 +58,8 @@ def login():
                 <ol>
                     <li> Add a Dollar Amount: </p>
                     <p> <input type="text" name="dollar_amt"  value=""/></p>
-                    <li> Add number of cents </li>
+                    <li> Add number of cents; (must be less than 100) </li>
+
                     <p> <input type="text" name="cents_amt"  value=""/></p>
                 </ol>
                     <submit><button>SUBMIT </button></submit>
