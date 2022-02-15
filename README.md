@@ -1,23 +1,31 @@
 
+[![Flask Change Microservice Test](https://github.com/feteezuk/flask-change-microservice/actions/workflows/main.yml/badge.svg)](https://github.com/feteezuk/flask-change-microservice/actions/workflows/main.yml)
 
 # flask-change-microservice
 Small Flask Microservice that makes change
 
-*Coursera Lab:  duke-coursera-ccb-lab2*
 
-![coursera-lab](https://user-images.githubusercontent.com/58792/108137449-df0e0300-7089-11eb-8b11-74f478b71d11.png)
+*Coursera Lab:  duke-coursera-ccb-lab2*
 
 
 ## Invoke Endpoint
 
 
+# Download a copy of the code here to your computer and Navigate to Terminal
+1. cd into the directory "flask-change-microservice-main"
+2. Next, 
 * Install and Test:  `make all`
 * Run it:  `python app.py`
-* Invoke it.  Options include curl, Postman, httpie.  These methods are documented below
+
+1. Open web browser and navigate to http://127.0.0.1:5000/login where it will prompt you
+to add "dollars" and "cents" which will return your inputs as well as your inputs multiplied by 100.
 
 
-Created new App Route ```@app.route('/multiply/<dollar>/<cents>'```
-    which returns change multiplied by 100 and 1000
+2. Navigate to http://127.0.0.1:5000/multiply/<dollar>/<cents>'```
+   * Your job is to add a number for <dollar>
+    * Your job is to add a number for <cents>
+    
+    EX. ```http://127.0.0.1:5000/multiply/10/50```
 
 
 
