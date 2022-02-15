@@ -28,8 +28,8 @@ def change(amount):
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    print("I am inside hello world")
-    return 'Hello World! I can make change at route: /change'
+    print("Johnny WAS HERE")
+    return 'Johnny WAS HERE'
 
 @app.route('/change/<dollar>/<cents>')
 def changeroute(dollar, cents):
@@ -37,6 +37,19 @@ def changeroute(dollar, cents):
     amount = f"{dollar}.{cents}"
     result = change(float(amount))
     return jsonify(result)
+
+@app.route('/multiply/<dollar>/<cents>')
+def multiply(dollar, cents):
+    AMOUNT = f"{dollar}.{cents}"
+    scen1_mult = float(AMOUNT) * int(100)
+    scen2_mult = float(AMOUNT) * int(1000)
+    Scenario_1 = f"Dollars: ${dollar}, cents: {cents}, This is the CHANGE X 100: {float(scen1_mult) }  <br> "
+    Scenario_2 = f"Dollars: ${dollar}, cents: {cents}, This is the CHANGE X 1000: {float(scen2_mult) } <br> "
+
+    return Scenario_1 + Scenario_2
+
+
+
 
 
 if __name__ == '__main__':
