@@ -1,5 +1,7 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask import jsonify
+import requests
+import json
 app = Flask(__name__)
 
 def change(amount):
@@ -48,9 +50,42 @@ def multiply(dollar, cents):
 
     return Scenario_1 + Scenario_2
 
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    if request.method =="GET":
+        return f'''<h1>Login</h1>
+                <form action="#" method="post">
+                <ol>
+                    <li> Add a Dollar Amount: </p>
+                    <p> <input type="text" name="dollar_amt"  value=""/></p>
+                    <li> Add number of cents </li>
+                    <p> <input type="text" name="cents_amt"  value=""/></p>
+                </ol>
+                    <submit><button>SUBMIT </button></submit>
+                </form>
+
+        '''
+    else:
+        dollar_amt = request.form['dollar_amt']
+        cents_amt = request.form['cents_amt']
+        if float(cents_amt) < 100:
+            total = f"{dollar_amt}.{cents_amt}"
+            new_amt_100x = float(total) * float(100)
+            return f'''Dollar amount: {dollar_amt} <br>
+                               cents: {cents_amt} <br>
+                               total: {total} <br>
+                         total * 100 = {new_amt_100x} '''
+        else:
+            return '''cents must be under 100, retry form
+            <button> Please press your browsers back button and try again </button>'''
 
 
+        
 
+
+@app.route('/form-example', methods=['GET', 'POST'])
+def form_example(dollar):
+    return "hi"
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
