@@ -52,7 +52,7 @@ def multiply(dollar, cents):
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method =="GET":
-        return f'''<h1>Login</h1>
+        less = '''<h1>Login</h1>
                 <form action="#" method="post">
                 <ol>
                     <li> Add a Dollar Amount: </p>
@@ -62,9 +62,8 @@ def login():
                     <p> <input type="text" name="cents_amt"  value=""/></p>
                 </ol>
                     <submit><button>SUBMIT </button></submit>
-                </form>
-
-        '''
+                </form>'''
+        return less
     else:
         dollar_amt = request.form['dollar_amt']
         cents_amt = request.form['cents_amt']
